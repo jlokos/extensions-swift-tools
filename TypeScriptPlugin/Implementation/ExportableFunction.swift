@@ -80,11 +80,11 @@ private extension ExportableFunction {
 
     if let args = type.genericArgumentClause?.arguments {
       switch name {
-      case "Set" where args.count == 1: return "Set<\(typeScriptType(for: args.first!.argument))>"
-      case "Array" where args.count == 1: return "\(typeScriptType(for: args.first!.argument))[]"
+      case "Set" where args.count == 1: return "Set<\\(typeScriptType(for: args.first!.argument.type))>"
+      case "Array" where args.count == 1: return "\\(typeScriptType(for: args.first!.argument))[]"
       case "Dictionary" where args.count == 2:
         let s = args.startIndex, e = args.index(after: s)
-        return "{ [key: \(typeScriptType(for: args[s].argument))]: \(typeScriptType(for: args[e].argument)) }"
+          return "{ [key: \\(typeScriptType(for: args[s].argument.type))]: \\(typeScriptType(for: args[e].argument.type)) }"
       default: return "any"
       }
     } else {

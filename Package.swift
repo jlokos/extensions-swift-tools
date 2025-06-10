@@ -1,11 +1,11 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
   name: "extensions-swift-tools",
   platforms: [
-    .macOS(.v12)
+    .macOS(.v15)
   ],
   products: [
     .library(
@@ -22,7 +22,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-syntax.git", from: "509.1.1"),
+    .package(url: "https://github.com/apple/swift-syntax.git", from: "602.0.0-prerelease-2025-05-29"),
   ],
   targets: [
 
@@ -98,7 +98,7 @@ let package = Package(
       // swiftSettings: .swiftSettings
     )
   ],
-  swiftLanguageVersions: [.v5]
+  swiftLanguageModes: [.v6]
 )
 
 // private extension Array<SwiftSetting> {
